@@ -1,4 +1,4 @@
-County,County Seat,License Plate Prefix
+County,City,License Plate Prefix
 Anaconda-Deer Lodge,Anaconda,30
 Beaverhead,Dillon,18
 Big Horn,Hardin,22
@@ -54,4 +54,5 @@ Treasure,Hysham,33
 Valley,Glasgow,20
 Wheatland,Harlowton,44
 Wibaux,Wibaux,52
-Yellowstone,Billings,3
+Hill,Aver,12
+Hill,Haver,12

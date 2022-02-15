@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MT License Data Interface</title>
+    <!--NATE WHY DOES THE STYLESHEET NOT WORK??????????-->
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet" type="text/css">
+</head>
+<h1>{{ title }}</h1>
+{% block content%}
+    {% if search == True %}
+        <h2>The following results are relevant to your search:</h2>
+    {% else %}
+        <h2>The following is a list of all entries:</h2>
+    {% endif %}
+{%endblock content%}
+
+<body style="align-content: center;">
+<div style="text-align: center;">
+    <table>
+        <h1>
+            <!--Displaying the converted table-->
+            {% for table in tables %}
+            <h3>{{titles[loop.index]}}</h3>
+            {{ table|safe }}
+            {% endfor %}
+        </h1>
+    </table>
+</div>
+
+{% block easter %}
+    {% if val == "easter"%}
+        {% include 'easter.html'%}
+    {% endif %}
+{% endblock easter %}
+
+<a href="{{ url_for('home.select_search_type') }}">Return to Home Page</a>
+
+{% block content2 %}
+    {% if term == "prefix" %}
+        <a href="{{ url_for('prefix_search.search_by_prefix') }}">Return to Prefix Search</a>
+    {% elif term == "city" %}
+        <a href="{{ url_for('city_search.search_by_city') }}">Return to City Search</a>
+    {% endif %}
+{%endblock content2 %}
+
+</body>
+</html>

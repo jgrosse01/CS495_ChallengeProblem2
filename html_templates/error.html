@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MT License Data Interface</title>
+</head>
+<body>
+<h1>ERROR {{ error_code }}: {{ error_type }}</h1>
+
+<p>That's not very Montana of you.</p><br>
+<p>If you thought you knew Montana, click this: </p>
+<a href="https://www.youtube.com/watch?v=cSCrVixkLzY">So You Thought You Knew Montana</a> <br><br>
+<p>{{ error_hint }}</p><br>
+
+<a href="{{ url_for('home.select_search_type') }}">Return to Home Page</a><br>
+
+{% block content %}
+    {% if term == "prefix" %}
+        <a href="{{ url_for('prefix_search.search_by_prefix') }}">Return to Prefix Search</a>
+    {% elif term == "city" %}
+        <a href="{{ url_for('city_search.search_by_city') }}">Return to City Search</a>
+    {% elif term == "add_entry" %}
+        <a href="{{ url_for('append_entry.append_entry_method', key_val=key) }}">Return to Add Entry</a>
+    {% endif %}
+{% endblock content %}
+
+</body>
+</html>

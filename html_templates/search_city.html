@@ -2,9 +2,45 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>MT License City Search</title>
+    <title>MT License Data Interface</title>
 </head>
 <body>
+    <form id="lookup-container" action="{{ url_for('city_results.city_results') }}" method="post">
+        <h1>Montana License Lookup</h1>
+        <h2>Search By City</h2>
+        <p>This lookup will remove any non-alpha characters from the input and put the letters next to each other for the search.</p>
+        <p>Please provide the following search conditions:</p>
+
+        <label>Desired Output Type:</label>
+
+        <div class="form-radio">
+            <input class="radio-in" type="radio" name="output" value="county" id="county-radio-option">
+            <label class="radio-in" for="county-radio-option">County Only</label>
+        </div>
+
+        <div class="form-radio">
+            <input class="radio-in" type="radio" name="output" value="prefix" id="license-radio-option">
+            <label class="radio-in" for="license-radio-option">License Prefix Only</label>
+        </div>
+
+        <div class="form-radio">
+            <input class="radio-in" type="radio" name="output" value="county-seat" id="both-radio-option" checked>
+            <label class="radio-in" for="both-radio-option">Both County and License Prefix</label>
+        </div>
+
+        <br>
+
+        <label for="city">Enter City:</label>
+        <input name="city" id="city">
+
+        <br><br>
+
+        <input type="submit" name="submit" value="Submit">
+
+        <a href="{{ url_for('display.display') }}">Manual Lookup</a>
+
+        <a href="{{ url_for('home.select_search_type') }}">Return to Homepage</a>
+    </form>
 
 </body>
 </html>

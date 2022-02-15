@@ -2,9 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>MT License Add Entry</title>
+    <title>MT License Data Interface</title>
 </head>
 <body>
+<form id="add-entry" action="{{ url_for('append_item.append_item') }}" method="post">
+    <h1>Add Another Montana City to the License Registry:</h1>
+
+    <label for="city_name">Enter City Name: </label>
+    <input name="city_name" id="city_name" type="text" value="{{ key }}" readonly><br>
+
+    <label for="county">Enter City's County: </label>
+    <input name="county" id="county"><br>
+
+
+    <label for="prefix">Enter County License Plate Prefix: </label>
+    <input name="prefix" id="prefix"><br><br>
+
+    <input type="submit" name="submit" value="Submit">
+
+    <a href="{{ url_for('home.select_search_type') }}">Return to Homepage</a>
+</form>
 
 </body>
 </html>
