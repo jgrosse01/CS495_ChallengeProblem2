@@ -4,11 +4,9 @@ Created:        12 February 2022
 Description:    Blueprint to display the results of various search types.
 """
 import pandas
-import numpy as np
 from flask import Blueprint, render_template, request, redirect, url_for
 from ..read_write.file_loader import read_csv
 from ..lookup.license_search import lookup_prefix, lookup_city
-from ..util.text_manipulation import upper_fl
 import re
 
 # blueprints for rendering in webapp
